@@ -1,4 +1,4 @@
-package com.web.sangsang.config;
+package com.web.sangsang.framework.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

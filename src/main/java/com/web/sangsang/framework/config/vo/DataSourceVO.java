@@ -1,4 +1,4 @@
-package com.web.sangsang.config.vo;
+package com.web.sangsang.framework.config.vo;
 
 import lombok.Data;
 

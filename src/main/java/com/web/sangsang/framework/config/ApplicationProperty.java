@@ -1,6 +1,6 @@
-package com.web.sangsang.config;
+package com.web.sangsang.framework.config;
 
-import com.web.sangsang.config.vo.DataSourceVO;
+import com.web.sangsang.framework.config.vo.DataSourceVO;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
