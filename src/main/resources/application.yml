@@ -1,4 +1,4 @@
-
+---
 DataSource:
   driverClassName: net.sf.log4jdbc.DriverSpy
   url: jdbc:log4jdbc:mysql://neutti.c2k16nlwk2pw.ap-northeast-2.rds.amazonaws.com

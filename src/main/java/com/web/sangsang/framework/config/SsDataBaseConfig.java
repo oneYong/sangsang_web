@@ -35,17 +35,11 @@ public class SsDataBaseConfig implements TransactionManagementConfigurer {
 
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
-        String driverClassName = ssPropertyDataSource.getDriverClassName();
-        String url = ssPropertyDataSource.getUrl();
-        String username = ssPropertyDataSource.getUserName();
-        String password = ssPropertyDataSource.getPassword();
-
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-
+        dataSource.setDriverClassName(ssPropertyDataSource.getDriverClassName());
+        dataSource.setUrl(ssPropertyDataSource.getUrl());
+        dataSource.setUsername(ssPropertyDataSource.getUserName());
+        dataSource.setPassword(ssPropertyDataSource.getPassword());
         return dataSource;
     }
 
