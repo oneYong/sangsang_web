@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 
 /**
  * Created by WYKIM on 2017-01-04.
@@ -41,8 +43,18 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
                 .mediaType("xml",MediaType.APPLICATION_XML);
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
+
     @Bean
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter(){
         return new MappingJackson2HttpMessageConverter();
     }
+
 }
