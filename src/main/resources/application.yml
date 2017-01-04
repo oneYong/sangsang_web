@@ -1,12 +1,10 @@
 ---
-DataSource:
-  driverClassName: net.sf.log4jdbc.DriverSpy
-  url: jdbc:log4jdbc:mysql://neutti.c2k16nlwk2pw.ap-northeast-2.rds.amazonaws.com
-  userName: neutti
-  password: qwerasdf
+### 스프링 encoding
+spring:
+  http:
+    encoding:
+      charset: UTF-8
 
-Mybatis:
-  configPath: META-INF/mybatis/mybatis.xml
-
-
-
+### tomcat 서버 포트
+server:
+  port: 8099

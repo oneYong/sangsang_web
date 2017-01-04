@@ -5,6 +5,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import java.util.HashMap;
@@ -24,7 +25,7 @@ public class SsServletConfig {
 
     @Bean
     public ServletRegistrationBean dispatcherServletRegistration() {
-        final ServletRegistrationBean registration = new ServletRegistrationBean(dispatcherServlet(), "/");
+        final ServletRegistrationBean registration = new ServletRegistrationBean(dispatcherServlet(), "/*");
         final Map<String, String> params = new HashMap<String, String>();
         params.put("contextClass", "org.springframework.web.context.support.AnnotationConfigWebApplicationContext");
         params.put("contextConfigLocation", "com.web.sangsang");
@@ -34,11 +35,19 @@ public class SsServletConfig {
         registration.setLoadOnStartup(1);
         return registration;
     }
-
+    /*
     @Bean
-    public FilterRegistrationBean encodingFilter() {
+    public FilterRegistrationBean setCharacterEncodingFilter() {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.setFilter(characterEncodingFilter());
+        bean.setOrder(1);
+        return bean;
+    }
+
+    @Bean
+    public FilterRegistrationBean setHiddenHttpMethodFilter() {
+        FilterRegistrationBean bean = new FilterRegistrationBean();
+        bean.setFilter(hiddenHttpMethodFilter());
         bean.setOrder(1);
         return bean;
     }
@@ -50,5 +59,11 @@ public class SsServletConfig {
         return encodingFilter;
     }
 
+    private HiddenHttpMethodFilter hiddenHttpMethodFilter(){
+        HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
+        hiddenHttpMethodFilter.setMethodParam("/*");
+        return hiddenHttpMethodFilter;
+    }
+   */
 
 }

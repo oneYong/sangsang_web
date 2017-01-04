@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Data
-@ConfigurationProperties(prefix="DataSource")
+@ConfigurationProperties(locations={"application-datasource.yml"},prefix="DataSource")
 public class SsPropertyDataSource {
     private String driverClassName;
     private String url;

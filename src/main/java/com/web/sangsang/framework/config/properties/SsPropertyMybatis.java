@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Data
-@ConfigurationProperties(prefix="Mybatis")
+@ConfigurationProperties(locations={"application-datasource.yml"},prefix="Mybatis")
 public class SsPropertyMybatis {
     private String configPath;
 }
