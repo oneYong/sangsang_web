@@ -18,18 +18,18 @@ import retrofit2.http.Query;
  */
 
 public interface RestService {
-    @POST("/user/update")
+    @POST("/api/user/update")
     Call<SsUser> updateUser(@Body SsUser user);
 
-    @GET("/user/find")
+    @GET("/api/user/find")
     Call<SsUser> findUser(@Query("sourceType") String sourceType, @Query("sourceId") String sourceId);
 
-    @GET("/{tableName}/find")
+    @GET("/api/cmm/{tableName}/find")
     Call<BaseEntity> find(@Path("tableName") String tableName, @Query("id") Long id);
 
-    @POST("/{tableName}/list")
+    @POST("/api/cmm/{tableName}/list")
     Call<List<BaseEntity>> list(@Path("tableName") String tableName, @Body PageEntity page);
 
-    @POST("/history/push")
+    @POST("/api/history/push")
     Call<BaseEntity> pushHistory(@Body List<SsLogging> loggings);
 }
