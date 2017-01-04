@@ -36,7 +36,7 @@ public class RestConnector {
                 System.out.println("RESPONSE ROW: " + response.raw());
                 return (T) response.body();
             } else {
-                // 400 이상 오류
+                // 400 이상   오류
                 return null;
             }
         } catch (IOException e) {
