@@ -4,10 +4,7 @@ import com.web.sangsang.cmm.entity.SsUser;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by WYKIM on 2017-01-04.
@@ -20,7 +17,7 @@ public class UserController {
 
     @ApiOperation(value = "Get User Info")
     @RequestMapping(value="/user/find", method = RequestMethod.GET)
-    public SsUser hello(@PathVariable("sourceType") String sourceType, @PathVariable("sourceId") String sourceId){
+    public SsUser hello(@RequestParam("sourceType") String sourceType, @RequestParam("sourceId") String sourceId){
         SsUser ssUser = new SsUser();
         ssUser.setSourceId(sourceId);
         ssUser.setSource(sourceType);
