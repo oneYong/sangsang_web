@@ -9,18 +9,17 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by WYKIM on 2017-01-04.
  */
-@Controller
 @RestController
-@RequestMapping(value="/api")
+@RequestMapping(value="/api/user")
 @Api(value = "UserController", description = "User API")
 public class UserController {
 
     @ApiOperation(value = "Get User Info")
-    @RequestMapping(value="/user/find", method = RequestMethod.GET)
-    public SsUser hello(@RequestParam("sourceType") String sourceType, @RequestParam("sourceId") String sourceId){
+    @RequestMapping(value="/find", method = RequestMethod.GET)
+    public SsUser hello(@RequestParam("source") String source, @RequestParam("sourceId") String sourceId){
         SsUser ssUser = new SsUser();
         ssUser.setSourceId(sourceId);
-        ssUser.setSource(sourceType);
+        ssUser.setSource(source);
         return ssUser;
     }
 }

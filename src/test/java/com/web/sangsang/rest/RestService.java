@@ -22,7 +22,7 @@ public interface RestService {
     Call<SsUser> updateUser(@Body SsUser user);
 
     @GET("/api/user/find")
-    Call<SsUser> findUser(@Query("sourceType") String sourceType, @Query("sourceId") String sourceId);
+    Call<SsUser> findUser(@Query("source") String source, @Query("sourceId") String sourceId);
 
     @GET("/api/cmm/{tableName}/find")
     Call<BaseEntity> find(@Path("tableName") String tableName, @Query("id") Long id);

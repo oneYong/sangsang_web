@@ -25,7 +25,7 @@ public class UserControllerTest {
         RestTemplate restTemplate = new RestTemplate();
 
         URI uri = UriComponentsBuilder.fromHttpUrl("http://localhost:8099/api/user/find")
-                .queryParam("sourceType","123")
+                .queryParam("source","123")
                 .queryParam("sourceId","123")
                 .build().toUri();
 

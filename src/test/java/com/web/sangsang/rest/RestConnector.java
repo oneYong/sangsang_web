@@ -51,9 +51,9 @@ public class RestConnector {
         return service;
     }
 
-    public SsUser getUser(String sourceType, String sourceId) {
+    public SsUser getUser(String source, String sourceId) {
         RestService service = getService();
-        Call<SsUser> result = service.findUser(sourceType,sourceId);
+        Call<SsUser> result = service.findUser(source,sourceId);
         SsUser object = getBody(result);
         return object;
 

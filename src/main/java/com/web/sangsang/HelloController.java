@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by WYKIM on 2017-01-04.
  */
-@Controller
 @RestController
 @RequestMapping(value="/")
 @Api(value = "HelloController", description = "SANGSANG API")
