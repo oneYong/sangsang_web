@@ -10,7 +10,7 @@ import lombok.Data;
  * ------------------------------------
  * 	아이디(PK)			ID
  * 	박물관이름				NAME
- * 	구분(국립,도립,...)	TYPE
+ * 	구분(국립,도립,...)		TYPE
  * 	중요도				IMPORTANCE
  * 	주제					SUBJECT
  * 	설명					DESCRIPTION
@@ -25,7 +25,7 @@ import lombok.Data;
  * ------------------------------------
  * 	탐방포인트(OtoM)		SS_GUIDE
  * 	오브젝트연결(OtoM)		SS_OBJECT
- * 	퀴즈연결(OtoM)		SS_QUIZ
+ * 	퀴즈연결(OtoM)			SS_QUIZ
  * 	사용자연결(MtoM)		SS_USER_MUSEUM
  */
 @Table(name="SS_MUSEUM")

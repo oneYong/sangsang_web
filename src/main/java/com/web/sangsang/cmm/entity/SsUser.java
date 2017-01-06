@@ -1,7 +1,5 @@
 package com.web.sangsang.cmm.entity;
 
-
-
 import com.web.sangsang.cmm.annotation.Column;
 import com.web.sangsang.cmm.annotation.Table;
 import lombok.Data;
@@ -13,6 +11,8 @@ import java.util.Date;
  * ------------------------------------
  * 	아이디(PK)			ID
  * 	이름					NAME
+ * 	성별					GENDER
+ * 	생년					BIRTH_YEAR
  * 	이메일				EMAIL
  * 	생성일자				CREATE_TIME
  * 	동의일자				AGREE_TIME
@@ -23,7 +23,7 @@ import java.util.Date;
  * 	연계토큰				SOURCE_TOKEN
  * ------------------------------------
  * 	박물관연결(MtoM)		SS_MUSEUM
- * 	퀴즈연결(OtoM)		SS_USER_QUIZ
+ * 	퀴즈연결(OtoM)			SS_USER_QUIZ
  */
 @Table(name="SS_USER")
 @Data
@@ -42,12 +42,32 @@ public class SsUser  {
 	public Date leaveTime;
 	@Column(name="NAME", nullable = false,length = 100)
 	public String name;
+	@Column(name="BIRTH_YEAR")
+	public String birthYear;
+	@Column(name="GENDER")
+	public String gender;
 	@Column(name="SOURCE", nullable = false,length = 100)
 	public String source;
 	@Column(name="SOURCE_ID",length = 1000)
 	public String sourceId;
 	@Column(name="SOURCE_TOKEN",length = 1000)
 	public String sourceToken;
+
+	public String getBirthYear() {
+		return birthYear;
+	}
+
+	public void setBirthYear(String birthYear) {
+		this.birthYear = birthYear;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
 	public String getGuid() {
 		return guid;
