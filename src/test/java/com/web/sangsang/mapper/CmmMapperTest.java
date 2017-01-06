@@ -1,6 +1,8 @@
 package com.web.sangsang.mapper;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.SsGuide;
 import com.web.sangsang.cmm.entity.SsLogging;
 import com.web.sangsang.cmm.entity.SsMuseum;
@@ -12,6 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import sun.java2d.cmm.kcms.CMM;
 
 import javax.annotation.Resource;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +31,8 @@ public class CmmMapperTest {
 
     @Test
     public void selectTest() throws Exception{
-        List<SsLogging> list = cmmMapper.selectSsLogging("sangsang.SS_LOGGING","",1,10);
+        List<Map<String,Object>> list = cmmMapper.selectTableList("SS_MUSEUM","",1,2);
         System.out.println(list);
-
-        List<SsMuseum> list2 = cmmMapper.selectSsMuseum("sangsang.SS_MUSEUM","",1,10);
-        System.out.println(list2);
     }
+
 }

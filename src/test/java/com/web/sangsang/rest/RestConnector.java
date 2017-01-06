@@ -1,6 +1,6 @@
 package com.web.sangsang.rest;
 
-import com.web.sangsang.cmm.annotation.Table;
+import com.web.sangsang.cmm.entity.annotation.Table;
 import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.PageEntity;
 import com.web.sangsang.cmm.entity.SsMuseum;
@@ -10,7 +10,6 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Query;
 
 import java.io.IOException;
 import java.util.List;

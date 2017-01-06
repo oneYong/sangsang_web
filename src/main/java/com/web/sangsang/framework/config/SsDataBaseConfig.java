@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -26,6 +27,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @Lazy
 @MapperScan("com.web.sangsang.mapper")
+@EnableConfigurationProperties({SsPropertyDataSource.class, SsPropertyMybatis.class})
 public class SsDataBaseConfig implements TransactionManagementConfigurer {
 
     @Autowired

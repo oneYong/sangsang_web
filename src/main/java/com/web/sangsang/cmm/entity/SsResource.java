@@ -1,8 +1,8 @@
 package com.web.sangsang.cmm.entity;
 
 
-import com.web.sangsang.cmm.annotation.Column;
-import com.web.sangsang.cmm.annotation.Table;
+import com.web.sangsang.cmm.entity.annotation.Column;
+import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
 
 /**
@@ -17,7 +17,7 @@ import lombok.Data;
  */
 @Table(name="SS_RESOURCE")
 @Data
-public class SsResource {
+public class SsResource  extends BaseEntity{
 	@Column(name = "ID", nullable = false, precision = 10,primarykey = true)
 	private Long id;
 	@Column(name="CAPTION")

@@ -2,6 +2,7 @@ package com.web.sangsang.framework.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,4 +16,5 @@ public class SsPropertyDataSource {
     private String url;
     private String userName;
     private String password;
+
 }

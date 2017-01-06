@@ -1,8 +1,8 @@
 package com.web.sangsang.cmm.entity;
 
 
-import com.web.sangsang.cmm.annotation.Column;
-import com.web.sangsang.cmm.annotation.Table;
+import com.web.sangsang.cmm.entity.annotation.Column;
+import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
 
 import java.util.Date;
@@ -22,7 +22,7 @@ import java.util.Date;
  */
 @Table(name="SS_LOGGING")
 @Data
-public class SsLogging{
+public class SsLogging extends BaseEntity{
 	@Column(name="TYPE", nullable=false, length=10)
 	private String type;
 	@Column(name="RECODE_TIME")

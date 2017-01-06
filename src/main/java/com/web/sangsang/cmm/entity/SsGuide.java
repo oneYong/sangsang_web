@@ -1,8 +1,8 @@
 package com.web.sangsang.cmm.entity;
 
 
-import com.web.sangsang.cmm.annotation.Column;
-import com.web.sangsang.cmm.annotation.Table;
+import com.web.sangsang.cmm.entity.annotation.Column;
+import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
 
 /**

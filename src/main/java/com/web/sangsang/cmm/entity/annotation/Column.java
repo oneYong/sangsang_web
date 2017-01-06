@@ -1,4 +1,4 @@
-package com.web.sangsang.cmm.annotation;
+package com.web.sangsang.cmm.entity.annotation;
 
 
 import java.lang.annotation.Retention;
