@@ -32,7 +32,5 @@ public class SsGuide extends BaseEntity{
 	private Integer oder;
 	@Column(name="CONTENTS")
 	private String contents;
-	@Column(name="MUSEUM_ID")
-	private SsMuseum ssMuseum;
 
 }

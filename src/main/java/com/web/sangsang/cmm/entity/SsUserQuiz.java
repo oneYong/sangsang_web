@@ -21,8 +21,4 @@ public class SsUserQuiz  extends BaseEntity{
 	private Long id;
 	@Column(name="IS_PASS", nullable = false)
 	private Boolean isPass;
-	@Column(name="USER_ID")
-	private SsUser ssUser;
-	@Column(name="QUIZ_ID")
-	private SsQuiz ssQuiz;
 }

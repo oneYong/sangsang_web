@@ -28,6 +28,4 @@ public class SsObject  extends BaseEntity{
 	private String name;
 	@Column(name="DESCRIPTION")
 	private String description;
-	@Column(name="MUSEUM_ID")
-	private SsMuseum ssMuseum;
 }

@@ -30,6 +30,4 @@ public class SsQuiz  extends BaseEntity{
 	private String question;
 	@Column(name="CONTENTS")
 	private String contents;
-	@Column(name="MUSEUM_ID")
-	private SsMuseum ssMuseum;
 }

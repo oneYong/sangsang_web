@@ -31,7 +31,7 @@ public class CmmMapperTest {
 
     @Test
     public void selectTest() throws Exception{
-        List<Map<String,Object>> list = cmmMapper.selectTableList("SS_MUSEUM","",1,2);
+        List<Map<String,Object>> list = cmmMapper.selectTableList("SS_OBJECT","",1,10);
         System.out.println(list);
     }
 

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 /**
  * Created by WYKIM on 2017-01-06.
  */
-@Component
 public enum TableNameToClassName {
     SS_GUIDE
     ,SS_LOGGING

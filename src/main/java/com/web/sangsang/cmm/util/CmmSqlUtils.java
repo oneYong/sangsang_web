@@ -27,9 +27,6 @@ public class CmmSqlUtils {
                 String fieldName = fields[i].getName();
                 String tableColumnName = fields[i].getAnnotation(Column.class).name();
 
-                if(fieldName.indexOf("ss") != -1)
-                    continue;
-
                 if(i == 0){
                     makeColumn += " t." + tableColumnName + " AS " + fieldName;
                 }else{
