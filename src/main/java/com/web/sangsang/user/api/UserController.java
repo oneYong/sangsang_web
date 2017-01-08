@@ -16,7 +16,7 @@ public class UserController {
 
     @ApiOperation(value = "Get User Info")
     @RequestMapping(value="/find", method = RequestMethod.GET)
-    public SsUser hello(@RequestParam("source") String source, @RequestParam("sourceId") String sourceId){
+    public SsUser findUser(@RequestParam("source") String source, @RequestParam("sourceId") String sourceId){
         SsUser ssUser = new SsUser();
         ssUser.setSourceId(sourceId);
         ssUser.setSource(source);

@@ -15,6 +15,6 @@ import java.util.Map;
  */
 public interface CmmMapper{
 
-    @SelectProvider(type= CmmSqlProvider.class, method = "selectTable")
+    @SelectProvider(type= CmmSqlProvider.class, method = "selectTableList")
     public List<Map<String,Object>> selectTableList(String tableName, String whereClause, Integer start, Integer end) throws Exception;
 }
