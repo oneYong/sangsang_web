@@ -1,9 +1,7 @@
 package com.web.sangsang.mapper;
 
 import com.web.sangsang.cmm.entity.SsUser;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -26,6 +24,32 @@ public interface UserMapper {
         ,@Result(property = "sourceId", column = "SOURCE_ID")
         ,@Result(property = "sourceToken", column = "SOURCE_TOKEN")
     })
-    @Select("SELECT * FROM sangsang.SS_USER")
-    public SsUser selectUser(String source, String sourceId) throws Exception;
+
+    @Select("SELECT * FROM sangsang.SS_USER WHERE SOURCE = #{source} AND SOURCE_ID = #{sourceId}")
+    public SsUser selectUser(@Param("source") String source, @Param("sourceId")  String sourceId) throws Exception;
+
+    @Insert("INSERT INTO sangsang.SS_USER (" +
+            "  GUID, AGREE_TIME, CREATE_TIME, EMAIL, LAST_TIME" +
+            ", LEAVE_TIME, NAME, SOURCE, SOURCE_ID, SOURCE_TOKEN" +
+            ", GENDER, BIRTH_YEAR) " +
+            "  VALUES (" +
+            "  #{guid},#{agreeTime},#{createTime},#{email},#{lastTime}" +
+            " ,#{leaveTime},#{name},#{source},#{sourceId},#{sourceToken}" +
+            " ,#{gender},#{birthYear})")
+    public int insertUser(SsUser ssUser) throws Exception;
+
+    @Update("UPDATE sangsang.SS_USER " +
+            "   SET AGREE_TIME = #{agreeTime} " +
+            "     , CREATE_TIME = #{createTime} " +
+            "     , EMAIL = #{email} " +
+            "     , LAST_TIME = #{lastTime} " +
+            "     , LEAVE_TIME = #{leaveTime} " +
+            "     , NAME = #{name} " +
+            "     , SOURCE = #{source} " +
+            "     , SOURCE_ID = #{sourceId} " +
+            "     , SOURCE_TOKEN = #{sourceToken} " +
+            "     , GENDER = #{gender} " +
+            "     , BIRTH_YEAR = #{birthYear} " +
+            " WHERE GUID = #{guid}")
+    public int updateUser(SsUser ssUser) throws Exception;
 }
