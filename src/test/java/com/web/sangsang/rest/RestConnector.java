@@ -1,6 +1,7 @@
 package com.web.sangsang.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.PageEntity;
@@ -13,6 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Map;
 
@@ -47,9 +49,9 @@ public class RestConnector {
                         Object resultObj = mapper.convertValue(resultMap, convertClass);
                         return (T)resultObj;
                     }else if(body instanceof List){
-                        List resultMap = (List) response.body();
+                        List resultList = (List) response.body();
                         ObjectMapper mapper = new ObjectMapper();
-                        Object resultObj = mapper.convertValue(resultMap, convertClass);
+                        Object resultObj = mapper.convertValue(resultList,  TypeFactory.defaultInstance().constructCollectionType(List.class, convertClass));
                         return (T)resultObj;
                     }else{
                         return null;
@@ -89,7 +91,7 @@ public class RestConnector {
     public List<SsMuseum> getMuseum(String 공주) {
         RestService service = getService();
         PageEntity entity = new PageEntity();
-        entity.setWhereClause(" name like '" + 공주 + "' ");
+        entity.setWhereClause(" 1=1 ");
         entity.setStart(0);
         entity.setEnd(10);
         Call<List<Object>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);

@@ -18,7 +18,7 @@ public class RestTest {
         SsMuseum museum = reader.getMuseum(600L);
         System.out.println("REQUEST OBJECT : " + museum);
         //
-        //List<SsMuseum> museumList = reader.getMuseum("공주");
-        //System.out.println("REQUEST OBJECT : " + museumList);
+        List<SsMuseum> museumList = reader.getMuseum("공주");
+        System.out.println("REQUEST OBJECT : " + museumList);
     }
 }
