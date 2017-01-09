@@ -21,16 +21,15 @@ public class UserControllerTest {
     //private UserService userService;
 
     @Test
-    public void test(){
+    public void testFindUser(){
         RestTemplate restTemplate = new RestTemplate();
 
-        URI uri = UriComponentsBuilder.fromHttpUrl("http://localhost:8099/api/user/find")
-                .queryParam("source","123")
-                .queryParam("sourceId","123")
+        URI uri = UriComponentsBuilder.fromHttpUrl("http://localhost:8077/api/user/find")
+                .queryParam("source","FACEBOOK")
+                .queryParam("sourceId","100200034")
                 .build().toUri();
 
-        ResponseEntity<SsUser> returnVal = restTemplate.getForEntity(uri, SsUser.class);
-        SsUser ssUser = returnVal.getBody();
+        SsUser ssUser = restTemplate.getForObject(uri, SsUser.class);
         System.out.println(ssUser);
     }
 }

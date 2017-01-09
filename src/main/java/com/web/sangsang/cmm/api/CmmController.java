@@ -23,11 +23,18 @@ public class CmmController {
 
     @ApiOperation(value = "Get Table List Info")
     @RequestMapping(value="/{tableName}/list", method = RequestMethod.POST)
-    public List<Map<String,Object>> getTableList(@PathVariable("tableName") String tablName, @RequestBody PageEntity pageEntity) throws Exception{
+    public List<Map<String,Object>> listTable(@PathVariable("tableName") String tablName, @RequestBody PageEntity pageEntity) throws Exception{
         String whereClause = pageEntity.getWhereClause();
         Integer start = pageEntity.getStart();
         Integer end = pageEntity.getEnd();
 
         return cmmMapper.selectTableList(tablName, whereClause, start, end);
+    }
+
+    @ApiOperation(value = "Get Table Info")
+    @RequestMapping(value="/{tableName}/find", method = RequestMethod.GET)
+    public Map<String,Object> findTable(@PathVariable("tableName") String tablName, @RequestParam("id") Long id) throws Exception{
+        String whereClause = "ID = "+id;
+        return cmmMapper.selectTable(tablName, whereClause);
     }
 }

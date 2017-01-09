@@ -17,4 +17,7 @@ public interface CmmMapper{
 
     @SelectProvider(type= CmmSqlProvider.class, method = "selectTableList")
     public List<Map<String,Object>> selectTableList(String tableName, String whereClause, Integer start, Integer end) throws Exception;
+
+    @SelectProvider(type= CmmSqlProvider.class, method = "selectTable")
+    public Map<String,Object> selectTable(String tableName, String whereClause) throws Exception;
 }

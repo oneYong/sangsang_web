@@ -13,9 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -47,6 +45,19 @@ public class CmmControllerTest {
                 .map(element->(SsMuseum) element)
                 .collect(Collectors.toList());
         System.out.println(ssMuseumList2);
+
+    }
+
+    @Test
+    public void testGetTable(){
+        RestTemplate restTemplate = new RestTemplate();
+        URI uri = UriComponentsBuilder.fromHttpUrl("http://localhost:8077/api/cmm/SS_MUSEUM/find")
+                .queryParam("id","538")
+                .build().toUri();
+
+        SsMuseum ssMuseum = restTemplate.getForObject(uri,SsMuseum.class);
+        System.out.println(ssMuseum);
+
 
     }
 }

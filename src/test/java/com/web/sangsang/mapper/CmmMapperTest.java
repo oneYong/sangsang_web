@@ -30,9 +30,17 @@ public class CmmMapperTest {
     private CmmMapper cmmMapper;
 
     @Test
-    public void selectTest() throws Exception{
+    public void testListTable() throws Exception{
         List<Map<String,Object>> list = cmmMapper.selectTableList("SS_OBJECT","",1,10);
         System.out.println(list);
+    }
+
+    @Test
+    public void testFindTable() throws Exception{
+        Long id = 538L;
+        String whereClause = "ID = " +id;
+        Map<String,Object> ssMuseum = cmmMapper.selectTable("SS_MUSEUM",whereClause);
+        System.out.println(ssMuseum);
     }
 
 }

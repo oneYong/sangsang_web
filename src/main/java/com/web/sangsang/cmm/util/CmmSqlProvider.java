@@ -13,6 +13,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class CmmSqlProvider {
 
+    public String selectTable(final String tableName, final String whereClause) {
+        String makeTable = getMakeTable(tableName, whereClause);
+        String makeWhere = getMakeWhere(null, null);
+        String makeColumns = CmmSqlUtils.getTableColumInfo(tableName);
+        return new SQL(){{
+            SELECT(makeColumns);
+            FROM(makeTable);
+            WHERE(makeWhere);
+
+        }}.toString();
+    }
+
     public String selectTableList(final String tableName, final String whereClause,final Integer start,final Integer end) {
         String makeTable = getMakeTable(tableName, whereClause);
         String makeWhere = getMakeWhere(start, end);
