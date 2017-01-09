@@ -1,5 +1,6 @@
 package com.web.sangsang.rest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.PageEntity;
@@ -13,15 +14,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public class RestConnector {
 
 
-    private static final String REST_HOST = "https://api.github.com/";
-
+    private static final String REST_HOST = "http://localhost:8077/";
 
 
     private <T> T getBody(Call<?> result) {
+        return getBody(result, null);
+    }
+    private <T> T getBody(Call<?> result,Class convertClass) {
         try {
             Response<?> response = result.execute();
             System.out.println("================================================================================");
@@ -33,7 +37,24 @@ public class RestConnector {
             System.out.println("REQUEST URL : " + result.request().url());
             if (response.isSuccessful()) {
                 System.out.println("RESPONSE ROW: " + response.raw());
-                return (T) response.body();
+                Object body = response.body();
+                if(convertClass == null){
+                    return (T)body;
+                }else{
+                    if(body instanceof Map){
+                        Map resultMap = (Map) response.body();
+                        ObjectMapper mapper = new ObjectMapper();
+                        Object resultObj = mapper.convertValue(resultMap, convertClass);
+                        return (T)resultObj;
+                    }else if(body instanceof List){
+                        List resultMap = (List) response.body();
+                        ObjectMapper mapper = new ObjectMapper();
+                        Object resultObj = mapper.convertValue(resultMap, convertClass);
+                        return (T)resultObj;
+                    }else{
+                        return null;
+                    }
+                }
             } else {
                 // 400 이상     오류
                 return null;
@@ -60,8 +81,8 @@ public class RestConnector {
 
     public SsMuseum getMuseum(Long id) {
         RestService service = getService();
-        Call<BaseEntity> result = service.find(SsMuseum.class.getAnnotation(Table.class).name(), id);
-        SsMuseum object = getBody(result);
+        Call<Object> result = service.find(SsMuseum.class.getAnnotation(Table.class).name(), id);
+        SsMuseum object = getBody(result,SsMuseum.class);
         return object;
     }
 
@@ -71,8 +92,8 @@ public class RestConnector {
         entity.setWhereClause(" name like '" + 공주 + "' ");
         entity.setStart(0);
         entity.setEnd(10);
-        Call<List<BaseEntity>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);
-        List<SsMuseum> object = getBody(result);
+        Call<List<Object>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);
+        List<SsMuseum> object = getBody(result,SsMuseum.class);
         return object;
     }
 }

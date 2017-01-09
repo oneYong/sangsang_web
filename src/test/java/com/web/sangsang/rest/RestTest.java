@@ -15,10 +15,10 @@ public class RestTest {
         SsUser obj = reader.getUser("FACEBOOK", "1234567890");
         System.out.println("REQUEST OBJECT : " + obj);
         //
-        SsMuseum museum = reader.getMuseum(1234567890L);
+        SsMuseum museum = reader.getMuseum(600L);
         System.out.println("REQUEST OBJECT : " + museum);
         //
-        List<SsMuseum> museumList = reader.getMuseum("공주");
-        System.out.println("REQUEST OBJECT : " + museumList);
+        //List<SsMuseum> museumList = reader.getMuseum("공주");
+        //System.out.println("REQUEST OBJECT : " + museumList);
     }
 }

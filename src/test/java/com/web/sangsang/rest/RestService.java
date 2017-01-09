@@ -25,10 +25,10 @@ public interface RestService {
     Call<SsUser> findUser(@Query("source") String source, @Query("sourceId") String sourceId);
 
     @GET("/api/cmm/{tableName}/find")
-    Call<BaseEntity> find(@Path("tableName") String tableName, @Query("id") Long id);
+    Call<Object> find(@Path("tableName") String tableName, @Query("id") Long id);
 
     @POST("/api/cmm/{tableName}/list")
-    Call<List<BaseEntity>> list(@Path("tableName") String tableName, @Body PageEntity page);
+    Call<List<Object>> list(@Path("tableName") String tableName, @Body PageEntity page);
 
     @POST("/api/history/push")
     Call<BaseEntity> pushHistory(@Body List<SsLogging> loggings);
