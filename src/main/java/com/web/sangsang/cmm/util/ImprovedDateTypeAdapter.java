@@ -19,6 +19,7 @@ import java.util.TimeZone;
 
 /**
  * Created by pig on 2017. 1. 9..
+ * source : http://stackoverflow.com/questions/5671373/unparseable-date-1302828677828-trying-to-deserialize-with-gson-a-millisecond
  */
 public final class ImprovedDateTypeAdapter extends TypeAdapter<Date> {
 
