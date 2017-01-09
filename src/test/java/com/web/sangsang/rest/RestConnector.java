@@ -14,6 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -103,6 +104,8 @@ public class RestConnector {
 
     public SsUser updateUser(SsUser obj) {
         RestService service = getService();
+        // update ...
+        obj.setLastTime(new Date());
         Call<SsUser> result = service.updateUser(obj);
         SsUser object = getBody(result,SsMuseum.class);
         return object;

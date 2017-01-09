@@ -33,16 +33,18 @@ public class SsUser extends BaseEntity{
 	@Column(name = "GUID", nullable = false, precision = 10)
 	public String guid;
 	@Column(name="AGREE_TIME")
-	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	public Date agreeTime;
 	@Column(name="CREATE_TIME")
-	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	public Date createTime;
 	@Column(name="EMAIL", nullable = false,length = 254)
 	public String email;
 	@Column(name="LAST_TIME")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	public Date lastTime;
 	@Column(name="LEAVE_TIME")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	public Date leaveTime;
 	@Column(name="NAME", nullable = false,length = 100)
 	public String name;
