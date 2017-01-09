@@ -2,11 +2,14 @@ package com.web.sangsang.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.PageEntity;
 import com.web.sangsang.cmm.entity.SsMuseum;
 import com.web.sangsang.cmm.entity.SsUser;
+import com.web.sangsang.cmm.util.ImprovedDateTypeAdapter;
 import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -15,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -68,7 +72,10 @@ public class RestConnector {
     }
 
     public RestService getService() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(REST_HOST).addConverterFactory(GsonConverterFactory.create()).build();
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Date.class, new ImprovedDateTypeAdapter());
+        Gson gson = builder.create();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(REST_HOST).addConverterFactory(GsonConverterFactory.create(gson)).build();
         RestService service = retrofit.create(RestService.class);
         return service;
     }
@@ -91,7 +98,7 @@ public class RestConnector {
     public List<SsMuseum> getMuseum(String 공주) {
         RestService service = getService();
         PageEntity entity = new PageEntity();
-        entity.setWhereClause(" 1=1 ");
+        entity.setWhereClause(" name like '%" + 공주 + "%' ");
         entity.setStart(0);
         entity.setEnd(10);
         Call<List<Object>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);

@@ -12,7 +12,7 @@ public class RestTest {
     public static void main(String[] args) {
         RestConnector reader = new RestConnector();
         //
-        SsUser obj = reader.getUser("FACEBOOK", "1234567890");
+        SsUser obj = reader.getUser("FACEBOOK", "100200034");
         System.out.println("REQUEST OBJECT : " + obj);
         //
         SsMuseum museum = reader.getMuseum(600L);
