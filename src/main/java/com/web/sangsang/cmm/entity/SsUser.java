@@ -1,6 +1,7 @@
 package com.web.sangsang.cmm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.web.sangsang.cmm.entity.annotation.Column;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
@@ -32,8 +33,10 @@ public class SsUser extends BaseEntity{
 	@Column(name = "GUID", nullable = false, precision = 10)
 	public String guid;
 	@Column(name="AGREE_TIME")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
 	public Date agreeTime;
 	@Column(name="CREATE_TIME")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
 	public Date createTime;
 	@Column(name="EMAIL", nullable = false,length = 254)
 	public String email;

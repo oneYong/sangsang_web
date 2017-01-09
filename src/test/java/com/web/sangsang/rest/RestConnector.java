@@ -1,24 +1,19 @@
 package com.web.sangsang.rest;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.web.sangsang.cmm.entity.annotation.Table;
-import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.PageEntity;
 import com.web.sangsang.cmm.entity.SsMuseum;
 import com.web.sangsang.cmm.entity.SsUser;
-import com.web.sangsang.cmm.util.ImprovedDateTypeAdapter;
 import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +21,7 @@ public class RestConnector {
 
 
     private static final String REST_HOST = "http://localhost:8077/";
+
 
 
     private <T> T getBody(Call<?> result) {
@@ -72,10 +68,9 @@ public class RestConnector {
     }
 
     public RestService getService() {
-        GsonBuilder builder = new GsonBuilder();
-        builder.registerTypeAdapter(Date.class, new ImprovedDateTypeAdapter());
-        Gson gson = builder.create();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(REST_HOST).addConverterFactory(GsonConverterFactory.create(gson)).build();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(REST_HOST).addConverterFactory(JacksonConverterFactory.create(mapper)).build();
         RestService service = retrofit.create(RestService.class);
         return service;
     }
@@ -103,6 +98,13 @@ public class RestConnector {
         entity.setEnd(10);
         Call<List<Object>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);
         List<SsMuseum> object = getBody(result,SsMuseum.class);
+        return object;
+    }
+
+    public SsUser updateUser(SsUser obj) {
+        RestService service = getService();
+        Call<SsUser> result = service.updateUser(obj);
+        SsUser object = getBody(result,SsMuseum.class);
         return object;
     }
 }
