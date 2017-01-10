@@ -17,7 +17,9 @@ public class SsServletConfig {
 
     @Bean
     public DispatcherServlet dispatcherServlet(){
-        return new DispatcherServlet();
+        DispatcherServlet dispatcherServlet = new DispatcherServlet();
+        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
+        return dispatcherServlet;
     }
 
     @Bean

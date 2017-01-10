@@ -5,6 +5,9 @@ spring:
     encoding:
       charset: UTF-8
 
-### tomcat 서버 포트
+### tomcat 서버 포트 & error 화면 안보이게 설정
 server:
   port: 8077
+  error:
+    whitelabel:
+      enabled: false
