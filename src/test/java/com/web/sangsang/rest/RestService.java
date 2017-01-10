@@ -30,6 +30,6 @@ public interface RestService {
     @POST("/api/cmm/{tableName}/list")
     Call<List<Object>> list(@Path("tableName") String tableName, @Body PageEntity page);
 
-    @POST("/api/history/push")
+    @POST("/api/logging/push")
     Call<BaseEntity> pushHistory(@Body List<SsLogging> loggings);
 }

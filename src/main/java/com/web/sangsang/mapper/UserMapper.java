@@ -3,9 +3,6 @@ package com.web.sangsang.mapper;
 import com.web.sangsang.cmm.entity.SsUser;
 import org.apache.ibatis.annotations.*;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * Created by WYKIM on 2017-01-03.
  */

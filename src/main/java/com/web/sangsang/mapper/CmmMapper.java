@@ -1,10 +1,7 @@
 package com.web.sangsang.mapper;
 
-import com.web.sangsang.cmm.entity.BaseEntity;
-import com.web.sangsang.cmm.entity.SsLogging;
-import com.web.sangsang.cmm.entity.SsMuseum;
+
 import com.web.sangsang.cmm.util.CmmSqlProvider;
-import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import java.util.List;

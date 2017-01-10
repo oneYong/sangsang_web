@@ -3,7 +3,6 @@ package com.web.sangsang.user.service;
 
 import com.web.sangsang.cmm.entity.SsUser;
 import com.web.sangsang.mapper.UserMapper;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,22 +1,16 @@
 package com.web.sangsang.user.api;
 
-import com.web.sangsang.cmm.entity.BaseEntity;
-import com.web.sangsang.cmm.entity.PageEntity;
-import com.web.sangsang.cmm.entity.SsMuseum;
 import com.web.sangsang.cmm.entity.SsUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 /**
  * Created by WYKIM on 2017-01-04.

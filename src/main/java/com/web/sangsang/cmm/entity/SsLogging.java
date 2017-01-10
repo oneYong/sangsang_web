@@ -1,6 +1,7 @@
 package com.web.sangsang.cmm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.web.sangsang.cmm.entity.annotation.Column;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class SsLogging extends BaseEntity{
 	@Column(name="TYPE", nullable=false, length=10)
 	private String type;
 	@Column(name="RECODE_TIME")
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	private Date recodeTime;
 	@Column(name="REFERER",length=4000)
 	private String referer;

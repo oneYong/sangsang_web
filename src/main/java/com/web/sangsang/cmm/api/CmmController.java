@@ -1,7 +1,6 @@
 package com.web.sangsang.cmm.api;
 
 import com.web.sangsang.cmm.entity.PageEntity;
-import com.web.sangsang.cmm.entity.SsUser;
 import com.web.sangsang.mapper.CmmMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

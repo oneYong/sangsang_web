@@ -1,10 +1,6 @@
 package com.web.sangsang.cmm.util;
 
-import com.sun.org.apache.xalan.internal.utils.XMLSecurityManager;
-import com.web.sangsang.framework.config.properties.SsPropertyDataSource;
 import org.apache.ibatis.jdbc.SQL;
-import org.apache.ibatis.session.RowBounds;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
