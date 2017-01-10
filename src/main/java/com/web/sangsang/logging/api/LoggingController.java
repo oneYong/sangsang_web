@@ -27,7 +27,7 @@ public class LoggingController {
 
     @ApiOperation(value = "Push History Logging Info")
     @RequestMapping(value="/push", method = RequestMethod.POST)
-    public BaseEntity pushLogging(@RequestBody List<SsLogging> loggingList) throws Exception{
+    public BaseEntity pushLogging(@RequestBody List<SsLogging> loggingList) {
         CmmMessage result = null;
         BaseEntity baseEntity = new BaseEntity();
 
