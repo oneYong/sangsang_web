@@ -106,8 +106,10 @@ public class RestConnector {
         RestService service = getService();
         // update ...
         obj.setLastTime(new Date());
+        obj.setLeaveTime(new Date());
+        obj.setName("야야양");
         Call<SsUser> result = service.updateUser(obj);
-        SsUser object = getBody(result,SsMuseum.class);
+        SsUser object = getBody(result);
         return object;
     }
 }
