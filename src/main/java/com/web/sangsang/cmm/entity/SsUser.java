@@ -16,6 +16,7 @@ import java.util.Date;
  * 	성별					GENDER
  * 	생년					BIRTH_YEAR
  * 	이메일				EMAIL
+ * 	관심사항				INTEREST
  * 	생성일자				CREATE_TIME
  * 	동의일자				AGREE_TIME
  * 	최종액션일자			LAST_TIME
@@ -50,6 +51,8 @@ public class SsUser extends BaseEntity{
 	public String name;
 	@Column(name="BIRTH_YEAR")
 	public String birthYear;
+	@Column(name="INTEREST")
+	public String interest;
 	@Column(name="GENDER")
 	public String gender;
 	@Column(name="SOURCE", nullable = false,length = 100)
