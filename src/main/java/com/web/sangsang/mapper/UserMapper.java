@@ -16,6 +16,7 @@ public interface UserMapper {
         ,@Result(property = "leaveTime", column = "LEAVE_TIME")
         ,@Result(property = "name", column = "NAME")
         ,@Result(property = "birthYear", column = "BIRTH_YEAR")
+        ,@Result(property = "interest", column = "INTEREST")
         ,@Result(property = "gender", column = "GENDER")
         ,@Result(property = "source", column = "SOURCE")
         ,@Result(property = "sourceId", column = "SOURCE_ID")
@@ -28,25 +29,26 @@ public interface UserMapper {
     @Insert("INSERT INTO sangsang.SS_USER (" +
             "  GUID, AGREE_TIME, CREATE_TIME, EMAIL, LAST_TIME" +
             ", LEAVE_TIME, NAME, SOURCE, SOURCE_ID, SOURCE_TOKEN" +
-            ", GENDER, BIRTH_YEAR) " +
+            ", GENDER, BIRTH_YEAR,INTEREST) " +
             "  VALUES (" +
             "  #{guid},#{agreeTime},#{createTime},#{email},#{lastTime}" +
             " ,#{leaveTime},#{name},#{source},#{sourceId},#{sourceToken}" +
-            " ,#{gender},#{birthYear})")
+            " ,#{gender},#{birthYear},#{interest})")
     public int insertUser(SsUser ssUser) throws Exception;
 
     @Update("UPDATE sangsang.SS_USER " +
-            "   SET AGREE_TIME = #{agreeTime} " +
+            "   SET GUID = #{guid}" +
+            "     , AGREE_TIME = #{agreeTime} " +
             "     , CREATE_TIME = #{createTime} " +
             "     , EMAIL = #{email} " +
             "     , LAST_TIME = #{lastTime} " +
             "     , LEAVE_TIME = #{leaveTime} " +
             "     , NAME = #{name} " +
-            "     , SOURCE = #{source} " +
-            "     , SOURCE_ID = #{sourceId} " +
             "     , SOURCE_TOKEN = #{sourceToken} " +
             "     , GENDER = #{gender} " +
             "     , BIRTH_YEAR = #{birthYear} " +
-            " WHERE GUID = #{guid}")
+            "     , INTEREST = #{interest} " +
+            " WHERE SOURCE = #{source}" +
+            "       AND SOURCE_ID = #{sourceId}")
     public int updateUser(SsUser ssUser) throws Exception;
 }
