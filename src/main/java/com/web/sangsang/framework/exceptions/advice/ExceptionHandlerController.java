@@ -1,10 +1,8 @@
 package com.web.sangsang.framework.exceptions.advice;
 
+import com.web.sangsang.framework.exceptions.EmptyTokenException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
@@ -18,5 +16,11 @@ public class ExceptionHandlerController {
     @ResponseStatus(value= HttpStatus.NOT_FOUND)
     public String requestHandlingNoHanderFound(){
         return "error! ";
+    }
+
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(EmptyTokenException.class)
+    public String notValidTokenException(EmptyTokenException exception) {
+        return exception.toString();
     }
 }

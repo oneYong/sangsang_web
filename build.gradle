@@ -42,4 +42,5 @@ dependencies {
 	compile 'io.springfox:springfox-swagger-ui:2.4.0'
 	compile 'com.squareup.retrofit2:retrofit:2.1.0'
 	compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
+	compile 'org.springframework.boot:spring-boot-starter-security'
 }

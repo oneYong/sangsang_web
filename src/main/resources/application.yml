@@ -11,3 +11,9 @@ server:
   error:
     whitelabel:
       enabled: false
+
+### spring security mode 적용안함
+security:
+  basic:
+    enabled: false
+
