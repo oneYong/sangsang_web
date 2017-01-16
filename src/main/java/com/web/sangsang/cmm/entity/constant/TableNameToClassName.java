@@ -11,7 +11,7 @@ public enum TableNameToClassName {
     ,SS_MUSEUM
     ,SS_OBJECT
     ,SS_QUIZ
-    ,SS_QUIZE_CHOICE
+    ,SS_QUIZ_CHOICE
     ,SS_RESOURCE
     ,SS_USER
     ,SS_USER_QUIZ;
@@ -24,7 +24,7 @@ public enum TableNameToClassName {
             case SS_MUSEUM: return "SsMuseum";
             case SS_OBJECT: return "SsObject";
             case SS_QUIZ: return "SsQuiz";
-            case SS_QUIZE_CHOICE: return "SsQuizChoice";
+            case SS_QUIZ_CHOICE: return "SsQuizChoice";
             case SS_RESOURCE: return "SsResource";
             case SS_USER: return "SsUser";
             case SS_USER_QUIZ: return "SsUserQuiz";

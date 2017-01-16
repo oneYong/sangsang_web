@@ -95,8 +95,8 @@ public class RestConnector {
         RestService service = getService();
         PageEntity entity = new PageEntity();
         entity.setWhereClause(" name like '%" + 공주 + "%' ");
-        entity.setStart(0);
-        entity.setEnd(10);
+        //entity.setStart(0);
+        //entity.setEnd(10);
         Call<List<Object>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);
         List<SsMuseum> object = getBody(result,SsMuseum.class);
         return object;

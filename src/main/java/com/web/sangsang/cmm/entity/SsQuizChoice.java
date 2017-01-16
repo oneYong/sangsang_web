@@ -23,4 +23,6 @@ public class SsQuizChoice  extends BaseEntity{
 	private String contents;
 	@Column(name="IS_CORRECT",nullable = false)
 	private Boolean isCorrect;
+	@Column(name="QUIZ_ID")
+	private Long quizId;
 }

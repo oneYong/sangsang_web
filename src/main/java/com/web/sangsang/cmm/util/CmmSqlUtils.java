@@ -36,6 +36,7 @@ public class CmmSqlUtils {
             }
 
         }catch (Exception e){
+            e.printStackTrace();
             makeColumn = "*";
         }
 

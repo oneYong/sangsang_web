@@ -12,16 +12,16 @@ public class RestTest {
     public static void main(String[] args) {
         RestConnector reader = new RestConnector();
         //
-        SsUser obj = reader.getUser("FACEBOOK", "100200034");
-        System.out.println("REQUEST OBJECT : " + obj);
+        //SsUser obj = reader.getUser("FACEBOOK", "100200034");
+        //System.out.println("REQUEST OBJECT : " + obj);
         //
-        SsUser user = reader.updateUser(obj);
-        System.out.println("REQUEST OBJECT : " + user);
+        //SsUser user = reader.updateUser(obj);
+        //System.out.println("REQUEST OBJECT : " + user);
         //
         //SsMuseum museum = reader.getMuseum(600L);
         //System.out.println("REQUEST OBJECT : " + museum);
         //
-        //List<SsMuseum> museumList = reader.getMuseum("공주");
-        //System.out.println("REQUEST OBJECT : " + museumList);
+        List<SsMuseum> museumList = reader.getMuseum("공주");
+        System.out.println("REQUEST OBJECT : " + museumList);
     }
 }

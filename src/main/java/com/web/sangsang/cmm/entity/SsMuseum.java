@@ -1,9 +1,12 @@
 package com.web.sangsang.cmm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.web.sangsang.cmm.entity.annotation.Column;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * 박물관
@@ -59,5 +62,10 @@ public class SsMuseum extends BaseEntity{
 	private String remarks;
 	@Column(name="SUBJECT", length = 254)
 	private String subject;
-
+	@Column(name="CREATE_TIME", nullable = false)
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss",timezone="Asia/Seoul")
+	public Date createTime;
+	@Column(name="UPDATE_TIME", nullable = false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss",timezone="Asia/Seoul")
+	public Date updateTime;
 }
