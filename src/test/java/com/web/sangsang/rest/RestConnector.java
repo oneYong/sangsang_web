@@ -7,6 +7,9 @@ import com.web.sangsang.cmm.entity.annotation.Table;
 import com.web.sangsang.cmm.entity.PageEntity;
 import com.web.sangsang.cmm.entity.SsMuseum;
 import com.web.sangsang.cmm.entity.SsUser;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -69,9 +72,24 @@ public class RestConnector {
     }
 
     public RestService getService() {
+        final String token = "xxx";
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(REST_HOST).addConverterFactory(JacksonConverterFactory.create(mapper)).build();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.addInterceptor(new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request original = chain.request();
+                Request request = original.newBuilder().header("x-auth-token", token).build();
+                return chain.proceed(request);
+            }
+        });
+        OkHttpClient client = httpClient.build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(REST_HOST)
+                .addConverterFactory(JacksonConverterFactory.create(mapper))
+                .client(client)
+                .build();
         RestService service = retrofit.create(RestService.class);
         return service;
     }
