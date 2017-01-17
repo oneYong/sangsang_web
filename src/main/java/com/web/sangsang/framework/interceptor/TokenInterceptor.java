@@ -27,27 +27,30 @@ public class TokenInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 1. check empty token
-        checkEmptyToken(request);
+        String xAuthToken = checkEmptyToken(request);
 
         // 2. check exist user
-        checkExistUser(request);
+        checkExistUser(xAuthToken);
 
         return true;
     }
 
-    private void checkExistUser(HttpServletRequest request) throws Exception {
-        String xAuthToken = request.getHeader(TOKEN_NAME.toString());
-        if(!tokenService.isExistUser(xAuthToken))
-            throw notExistUserException;
-    }
-
-    private void checkEmptyToken(HttpServletRequest request)  {
-        try {
-            String xAuthToken = request.getHeader(TOKEN_NAME.toString());
-        } catch(NullPointerException npe) {
-            throw emptyTokenException;
+        private void checkExistUser(String xAuthToken) throws Exception {
+            if(!tokenService.isExistUser(xAuthToken))
+                throw notExistUserException;
         }
-    }
+
+        private String checkEmptyToken(HttpServletRequest request) throws Exception{
+            String xAuthToken = null;
+            try {
+                xAuthToken = request.getHeader(TOKEN_NAME);
+            } catch(NullPointerException npe) {
+                throw emptyTokenException;
+            } finally {
+                if(xAuthToken == null) throw emptyTokenException;
+            }
+            return xAuthToken;
+        }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
