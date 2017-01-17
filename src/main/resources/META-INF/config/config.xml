@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- AES256 key -->
+    <entry key="aes256.key">sangsang-web-aes256key</entry>
+</properties>

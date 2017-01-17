@@ -3,4 +3,6 @@
 <properties>
     <entry key="empty.token.message">토큰정보가 존재하지 않습니다</entry>
     <entry key="not.valid.token.message">유효하지 않은 토큰입니다</entry>
+
+    <entry key="not.exist.user.message">유저정보가 존재하지 않습니다</entry>
 </properties>

@@ -2,12 +2,9 @@ package com.web.sangsang.logging.api;
 
 import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.SsLogging;
-import com.web.sangsang.cmm.entity.SsUser;
-import com.web.sangsang.cmm.util.CmmException;
-import com.web.sangsang.cmm.util.CmmMessage;
+import com.web.sangsang.cmm.vo.CmmException;
+import com.web.sangsang.cmm.vo.CmmMessage;
 import com.web.sangsang.logging.service.LoggingService;
-import com.web.sangsang.mapper.UserMapper;
-import com.web.sangsang.user.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

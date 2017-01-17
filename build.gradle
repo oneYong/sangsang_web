@@ -38,6 +38,7 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile group: 'org.lazyluke', name: 'log4jdbc-remix', version: '0.2.7'
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
 	compile 'io.springfox:springfox-swagger2:2.4.0'
 	compile 'io.springfox:springfox-swagger-ui:2.4.0'
 	compile 'com.squareup.retrofit2:retrofit:2.1.0'

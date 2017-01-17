@@ -1,6 +1,8 @@
 package com.web.sangsang.framework.exceptions.advice;
 
 import com.web.sangsang.framework.exceptions.EmptyTokenException;
+import com.web.sangsang.framework.exceptions.NotExistUserException;
+import com.web.sangsang.framework.exceptions.NotValidTokenException;
 import com.web.sangsang.framework.exceptions.vo.RestErrorInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,20 @@ public class ExceptionHandlerController {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(EmptyTokenException.class)
     public String notValidTokenException(EmptyTokenException exception) {
+        log.error("uri : {}, method : {}, error : {}", request.getRequestURI(), request.getMethod(), exception.toString());
+        return exception.toString();
+    }
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(NotExistUserException.class)
+    public String notExistUserException(NotExistUserException exception) {
+        log.error("uri : {}, method : {}, error : {}", request.getRequestURI(), request.getMethod(), exception.toString());
+        return exception.toString();
+    }
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(NotValidTokenException.class)
+    public String notValidTokenException(NotValidTokenException exception) {
         log.error("uri : {}, method : {}, error : {}", request.getRequestURI(), request.getMethod(), exception.toString());
         return exception.toString();
     }

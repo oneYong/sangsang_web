@@ -3,4 +3,6 @@
 <properties>
     <entry key="empty.token.code">600</entry>
     <entry key="not.valid.token.code">601</entry>
+
+    <entry key="not.exist.user.code">701</entry>
 </properties>

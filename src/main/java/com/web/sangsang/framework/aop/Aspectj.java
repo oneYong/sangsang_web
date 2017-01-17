@@ -1,7 +1,7 @@
 package com.web.sangsang.framework.aop;
 
-import com.web.sangsang.cmm.util.CmmException;
-import com.web.sangsang.cmm.util.CmmMessage;
+import com.web.sangsang.cmm.vo.CmmException;
+import com.web.sangsang.cmm.vo.CmmMessage;
 import com.web.sangsang.framework.annotation.AfterSaving;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

@@ -2,8 +2,8 @@ package com.web.sangsang.logging.service;
 
 
 import com.web.sangsang.cmm.entity.SsLogging;
-import com.web.sangsang.cmm.util.CmmException;
-import com.web.sangsang.cmm.util.CmmMessage;
+import com.web.sangsang.cmm.vo.CmmException;
+import com.web.sangsang.cmm.vo.CmmMessage;
 import com.web.sangsang.mapper.CmmMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;

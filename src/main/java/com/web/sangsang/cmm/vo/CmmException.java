@@ -1,4 +1,4 @@
-package com.web.sangsang.cmm.util;
+package com.web.sangsang.cmm.vo;
 
 import lombok.Data;
 

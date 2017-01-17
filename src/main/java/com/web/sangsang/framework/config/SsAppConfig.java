@@ -1,6 +1,8 @@
 package com.web.sangsang.framework.config;
 
+import com.web.sangsang.cmm.util.CmmAES256Util;
 import com.web.sangsang.framework.interceptor.TokenInterceptor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.*;
 import org.springframework.core.io.ClassPathResource;
@@ -32,12 +34,17 @@ import java.util.List;
         includeFilters = { @ComponentScan.Filter(Controller.class),
                 @ComponentScan.Filter(ControllerAdvice.class),
                 @ComponentScan.Filter(Repository.class),
-                @ComponentScan.Filter(Component.class)},
-        excludeFilters = { @ComponentScan.Filter(Service.class) })
+                @ComponentScan.Filter(Component.class),
+                @ComponentScan.Filter(Service.class)})
 public class SsAppConfig extends WebMvcConfigurerAdapter {
+    // AES256 key
+    @Value("${aes256.key}")
+    private String aes256Key;
 
     private static final String ERROR_CODE_PATH = "META-INF/error/error-code.xml";
     private static final String ERROR_MESSAGE_PATH = "META-INF/error/error-message_kr.xml";
+    private static final String CONFIG_PATH = "META-INF/config/config.xml";
+
 
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
@@ -69,8 +76,10 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
     public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
         PropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new PropertyPlaceholderConfigurer();
 
-        propertyPlaceholderConfigurer.setLocations(new Resource[]{ new ClassPathResource(ERROR_CODE_PATH),
-                new ClassPathResource(ERROR_MESSAGE_PATH)});
+        propertyPlaceholderConfigurer.setLocations(new Resource[]{
+                new ClassPathResource(ERROR_CODE_PATH),
+                new ClassPathResource(ERROR_MESSAGE_PATH),
+                new ClassPathResource(CONFIG_PATH)});
         return propertyPlaceholderConfigurer;
     }
 
@@ -90,5 +99,10 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         HttpMessageConverter<String> stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
         converters.add(stringHttpMessageConverter);
+    }
+
+    @Bean
+    public CmmAES256Util aes256CipherUtil() throws Exception {
+        return new CmmAES256Util(aes256Key);
     }
 }
