@@ -6,6 +6,8 @@ import org.springframework.context.annotation.*;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.*;
+
+import java.nio.charset.Charset;
+import java.util.List;
 
 
 /**
@@ -81,4 +86,9 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
                 .excludePathPatterns("/", "/**/swagger-*/**");
     }
 
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        HttpMessageConverter<String> stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
+        converters.add(stringHttpMessageConverter);
+    }
 }

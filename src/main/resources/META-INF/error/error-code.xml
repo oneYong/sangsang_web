@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="empty.token.code">400</entry>
-    <entry key="not.valid.token.code">401</entry>
+    <entry key="empty.token.code">600</entry>
+    <entry key="not.valid.token.code">601</entry>
 </properties>
