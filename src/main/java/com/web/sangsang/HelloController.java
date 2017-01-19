@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value="/")
-@Api(value = "HelloController", description = "SANGSANG API")
 public class HelloController {
 
-    @ApiOperation(value = "Get First Message")
     @RequestMapping(method = RequestMethod.GET)
     public String hello(){
-        return "Hello SangSang App";
+        return "Hello SangSang Web";
     }
 }
