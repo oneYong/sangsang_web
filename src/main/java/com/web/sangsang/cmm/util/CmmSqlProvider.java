@@ -64,6 +64,6 @@ public class CmmSqlProvider {
     }
 
     public String serverState() {
-        return "SELECT * FROM "+CmmSqlUtils.DATABASE_NAME + ".SS_ENVIRONMENT ORDER BY APPLY_TIME DESC LIMIT 1";
+        return "SELECT CHECKING checking, APPLY_TIME applyTime FROM "+CmmSqlUtils.DATABASE_NAME + ".SS_ENVIRONMENT ORDER BY APPLY_TIME DESC LIMIT 1";
     }
 }
