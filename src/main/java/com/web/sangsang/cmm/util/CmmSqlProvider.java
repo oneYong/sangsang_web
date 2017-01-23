@@ -63,5 +63,7 @@ public class CmmSqlProvider {
         ") t";
     }
 
-
+    public String serverState() {
+        return "SELECT * FROM "+CmmSqlUtils.DATABASE_NAME + ".SS_ENVIRONMENT ORDER BY APPLY_TIME DESC LIMIT 1";
+    }
 }

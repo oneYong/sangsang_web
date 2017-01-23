@@ -36,4 +36,11 @@ public class CmmController {
         String whereClause = "ID = "+id;
         return cmmMapper.selectTable(tablName, whereClause);
     }
+
+    @ApiOperation(value = "Get System Info")
+    @RequestMapping(value="/server/state", method = RequestMethod.GET)
+    public Map<String,Object> serverState() throws Exception{
+        return cmmMapper.serverState();
+    }
+
 }
