@@ -21,7 +21,7 @@ public class CmmController {
     private CmmMapper cmmMapper;
 
     @ApiOperation(value = "Get Table List Info")
-    @RequestMapping(value="/{tableName}/list", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value="/{tableName}/list", method = RequestMethod.POST)
     public List<Map<String,Object>> listTable(@PathVariable("tableName") String tablName, @RequestBody PageEntity pageEntity) throws Exception{
         String whereClause = pageEntity.getWhereClause();
         Integer start = pageEntity.getStart();
