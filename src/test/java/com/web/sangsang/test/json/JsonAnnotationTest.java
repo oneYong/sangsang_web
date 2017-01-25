@@ -19,7 +19,6 @@ public class JsonAnnotationTest {
         extendableBean.add("att1","val1");
         extendableBean.add("att2","val2");
 
-        System.out.println(extendableBean.toString());
         String result = new ObjectMapper().writeValueAsString(extendableBean);
         System.out.println(result);
     }

@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by WYKIM on 2017-01-20.
  */
 
-public class ExtendableBean {
+public class ExtendableBean{
     public String name;
     private Map<String, String> properties;
 
