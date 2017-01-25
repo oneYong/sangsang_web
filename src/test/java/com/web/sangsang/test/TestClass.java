@@ -7,5 +7,6 @@ package com.web.sangsang.test;
 
 public class TestClass {
     public static void main(String[] args) throws Exception{
+        System.out.printf("hellos");
     }
 }

@@ -92,7 +92,7 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(tokenHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/", "/**/swagger-*/**","/configuration/ui","/v2/api-docs");
+                .excludePathPatterns("/", "/**/swagger-*/**","/configuration/ui","/v2/api-docs","/web/report/**");
     }
 
     @Override
