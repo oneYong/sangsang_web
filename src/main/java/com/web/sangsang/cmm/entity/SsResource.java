@@ -25,8 +25,8 @@ public class SsResource  extends BaseEntity{
 	private Long id;
 	@Column(name="CAPTION")
 	private String caption;
-	@Column(name="PATH", nullable = false,length = 4000)
-	private String path;
+	@Column(name="CONTENTS")
+	private String contents;
 	@Column(name="TYPE", length = 254)
 	private String type;
 	@Column(name="TARGET_ID", nullable = false,length = 5)
