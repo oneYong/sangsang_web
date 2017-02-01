@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+  <fontFamily name="HYGoThic-Medium">
+    <normal>static/fonts/HYGoThic-Medium.ttf</normal>
+    <bold>static/fonts/HYGoThic-Medium.ttf</bold>
+    <pdfEncoding>Identity-H</pdfEncoding>
+    <pdfEmbedded>true</pdfEmbedded>
+    <exportFonts>
+      <export key="net.sf.jasperreports.html">HYGoThic-Medium, 'HY중고딕'</export>
+      <export key="net.sf.jasperreports.xhtml">HYGoThic-Medium, 'HY중고딕'</export>
+    </exportFonts>
+  </fontFamily>
+</fontFamilies>

@@ -25,6 +25,13 @@ repositories {
 	mavenCentral()
 }
 
+repositories {
+	mavenCentral artifactUrls: [
+			'http://jasperreports.sourceforge.net/maven2',
+			'http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/'
+	]
+}
+
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-aop')
@@ -45,4 +52,12 @@ dependencies {
 	compile 'com.squareup.retrofit2:retrofit:2.1.0'
 	compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
 	compile 'org.springframework.boot:spring-boot-starter-security'
+
+	compile group: 'com.lowagie', name: 'itext', version: '2.1.7'
+	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.7'
+	compile group: 'org.apache.poi', name: 'poi', version: '3.15'
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.15'
+	compile group: 'com.itextpdf', name: 'itext-asian', version: '5.2.0'
+	compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.8'
+	compile 'net.sf.jasperreports:jasperreports:5.6.1'
 }
