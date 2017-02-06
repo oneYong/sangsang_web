@@ -1,6 +1,5 @@
 package com.web.sangsang.report.web;
 
-import com.google.common.reflect.ClassPath;
 import com.web.sangsang.cmm.entity.SsGuide;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
