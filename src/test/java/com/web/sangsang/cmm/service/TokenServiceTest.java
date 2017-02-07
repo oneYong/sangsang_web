@@ -1,10 +1,8 @@
 package com.web.sangsang.cmm.service;
 
 
-import com.web.sangsang.cmm.entity.SsUser;
+
 import com.web.sangsang.cmm.util.CmmUtil;
-import com.web.sangsang.mapper.UserMapper;
-import com.web.sangsang.user.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
 
 /**
  * Created by cloud4u on 2016-04-05.
