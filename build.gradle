@@ -18,7 +18,7 @@ jar.doFirst {
 	/* from configurations.compile.collect { it } */ //with jar
 	manifest {
 		attributes 'Main-Class': 'com.web.sangsang.SangsangWebApplication',
-				'Class-Path': configurations.compile.collect { ("file:///" + it.absolutePath + "") }.join(' ')
+				'Class-Path': configurations.runtime.collect { ("file:///" + it.absolutePath + "") }.join(' ')
 	}
 	baseName = 'demo'
 	version = '0.0.1-SNAPSHOT'
