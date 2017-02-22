@@ -2,12 +2,10 @@ package com.web.sangsang.cmm.api;
 
 import com.web.sangsang.cmm.entity.BaseEntity;
 import com.web.sangsang.cmm.entity.PageEntity;
-import com.web.sangsang.cmm.entity.SsMuseum;
-import com.web.sangsang.cmm.entity.SsUser;
+import com.web.sangsang.cmm.entity.SsPlace;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -34,15 +32,15 @@ public class CmmControllerTest {
         pageEntity.setStart(1);
         pageEntity.setEnd(10);
 
-        List<BaseEntity> resultBaseEntity = Arrays.asList(restTemplate.postForObject(uri,pageEntity,SsMuseum[].class));
+        List<BaseEntity> resultBaseEntity = Arrays.asList(restTemplate.postForObject(uri,pageEntity,SsPlace[].class));
 
         // solution 1
-        List<SsMuseum> ssMuseumList = (List<SsMuseum>)(Object) resultBaseEntity;
+        List<SsPlace> ssMuseumList = (List<SsPlace>)(Object) resultBaseEntity;
         System.out.println(ssMuseumList);
 
         // solution 2
-        List<SsMuseum> ssMuseumList2 = resultBaseEntity.stream()
-                .map(element->(SsMuseum) element)
+        List<SsPlace> ssMuseumList2 = resultBaseEntity.stream()
+                .map(element->(SsPlace) element)
                 .collect(Collectors.toList());
         System.out.println(ssMuseumList2);
 
@@ -55,7 +53,7 @@ public class CmmControllerTest {
                 .queryParam("id","538")
                 .build().toUri();
 
-        SsMuseum ssMuseum = restTemplate.getForObject(uri,SsMuseum.class);
+        SsPlace ssMuseum = restTemplate.getForObject(uri,SsPlace.class);
         System.out.println(ssMuseum);
 
 

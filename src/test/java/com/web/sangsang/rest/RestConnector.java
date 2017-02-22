@@ -3,9 +3,9 @@ package com.web.sangsang.rest;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.web.sangsang.cmm.entity.SsPlace;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import com.web.sangsang.cmm.entity.PageEntity;
-import com.web.sangsang.cmm.entity.SsMuseum;
 import com.web.sangsang.cmm.entity.SsUser;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -102,21 +102,21 @@ public class RestConnector {
 
     }
 
-    public SsMuseum getMuseum(Long id) {
+    public SsPlace getMuseum(Long id) {
         RestService service = getService();
-        Call<Object> result = service.find(SsMuseum.class.getAnnotation(Table.class).name(), id);
-        SsMuseum object = getBody(result,SsMuseum.class);
+        Call<Object> result = service.find(SsPlace.class.getAnnotation(Table.class).name(), id);
+        SsPlace object = getBody(result,SsPlace.class);
         return object;
     }
 
-    public List<SsMuseum> getMuseum(String 공주) {
+    public List<SsPlace> getMuseum(String 공주) {
         RestService service = getService();
         PageEntity entity = new PageEntity();
         entity.setWhereClause(" name like '%" + 공주 + "%' ");
         //entity.setStart(0);
         //entity.setEnd(10);
-        Call<List<Object>> result = service.list(SsMuseum.class.getAnnotation(Table.class).name(), entity);
-        List<SsMuseum> object = getBody(result,SsMuseum.class);
+        Call<List<Object>> result = service.list(SsPlace.class.getAnnotation(Table.class).name(), entity);
+        List<SsPlace> object = getBody(result,SsPlace.class);
         return object;
     }
 

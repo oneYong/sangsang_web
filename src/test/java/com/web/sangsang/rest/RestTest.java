@@ -1,7 +1,6 @@
 package com.web.sangsang.rest;
 
-import com.web.sangsang.cmm.entity.SsMuseum;
-import com.web.sangsang.cmm.entity.SsUser;
+import com.web.sangsang.cmm.entity.SsPlace;
 
 import java.util.List;
 
@@ -18,10 +17,10 @@ public class RestTest {
         //SsUser user = reader.updateUser(obj);
         //System.out.println("REQUEST OBJECT : " + user);
         //
-        //SsMuseum museum = reader.getMuseum(600L);
+        //SsPlace museum = reader.getMuseum(600L);
         //System.out.println("REQUEST OBJECT : " + museum);
         //
-        List<SsMuseum> museumList = reader.getMuseum("공주");
+        List<SsPlace> museumList = reader.getMuseum("공주");
         System.out.println("REQUEST OBJECT : " + museumList);
     }
 }
