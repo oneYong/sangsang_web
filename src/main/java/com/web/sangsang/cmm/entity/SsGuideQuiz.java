@@ -14,7 +14,7 @@ import lombok.Data;
 @Table(name="SS_GUIDE_QUIZ")
 @Data
 public class SsGuideQuiz extends BaseEntity {
-	@Column(name="GUICE_ID")
+	@Column(name="GUIDE_ID")
 	private String guideId;
 	@Column(name="QUIZ_ID")
 	private String quizId;

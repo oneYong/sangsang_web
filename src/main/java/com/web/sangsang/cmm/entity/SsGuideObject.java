@@ -14,7 +14,7 @@ import lombok.Data;
 @Table(name="SS_GUIDE_OBJECT")
 @Data
 public class SsGuideObject extends BaseEntity {
-	@Column(name="GUICE_ID")
+	@Column(name="GUIDE_ID")
 	private String guideId;
 	@Column(name="OBJECT_ID")
 	private String objectId;
