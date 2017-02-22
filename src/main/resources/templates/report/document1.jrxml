@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2017-02-01T13:12:45 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="document1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2aa55c41-6dcf-45cb-ad1b-86b2945be5c4">
+<!-- 2017-02-22T23:24:31 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2885beb5-4700-4fb1-93b7-89d9e9052b53">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="e7a8a499-3ae2-40b9-964b-c6d528c5ddf0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Dataset2" uuid="a454c331-5d93-4dd6-8812-d9bed71e29d4">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -9,37 +74,254 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="201" y="10" width="152" height="30" uuid="f33671e8-980a-4ad4-a95f-0159ed91e138">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="local_mesure_unitwidth" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font fontName="HYGoThic-Medium" size="24" isBold="true"/>
+		<band height="68" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="10" width="259" height="50" uuid="39b5167b-0485-4561-8ea0-5cd173dffd36"/>
+				<textElement textAlignment="Center">
+					<font fontName="HYGoThic-Medium" size="26"/>
 				</textElement>
-				<text><![CDATA[보   고   서]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[" 현장 체험학습 보고서 "]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="721" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<rectangle>
+				<reportElement x="0" y="39" width="551" height="40" uuid="45eb3a53-a29a-498d-b99a-f196b58e9e9a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="550" height="40" uuid="6eda5349-cabe-454c-a0bf-8e3209d45c0e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="4" y="11" width="380" height="22" uuid="3278d26b-258c-4760-bf61-3431e8f823ca"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["      초등학교  (   ) 학년  (   ) 반  이름 (             )  "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="139" width="120" height="69" uuid="6f63be5c-8490-4d9d-a818-84bd686e8614"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="392" y="0" width="159" height="40" uuid="78997656-fa65-4b12-b658-411b7274fe43"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="460" y="0" width="91" height="40" uuid="e2b9f98f-8ad7-435f-a9ec-981ad2b9f74d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="403" y="11" width="66" height="22" uuid="7bb63ab1-581a-4022-adc0-7599a842b06a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["보호자"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="517" y="15" width="66" height="22" uuid="c5b02d9b-2cf2-4836-a9ea-96d691ae1bfc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="HYGoThic-Medium" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(인)"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="40" width="119" height="39" uuid="11d2f6f4-37ec-4792-a82e-7a8174180855"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="51" width="119" height="30" uuid="1710542f-dda0-42eb-81df-e9340cd9ecb2"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체험학습 기간"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="50" width="380" height="22" uuid="5277e0d2-56be-4b93-b4a5-5a8ea50c48f5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" 년    월    일  ~      년    월    일까지 (    ) 일간"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="79" width="551" height="71" uuid="1e8d4a2d-93c2-4fbb-961f-07bf032ff96d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="79" width="119" height="71" uuid="e620e6af-00d6-4629-a086-fad091650f1f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="83" width="117" height="27" uuid="8e51d502-c05a-4b77-bb19-63329f189645"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체험학습 장소 "]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="150" width="551" height="71" uuid="41f67138-8b0e-4771-9603-7694be061d86"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="150" width="119" height="71" uuid="fd389da0-dc3a-43f8-9bd9-c4e195b9d764"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="155" width="126" height="48" uuid="d34cdd3f-abfe-4c65-80b1-bb387ee3bd7e"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체험학습 영역 "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="176" width="126" height="19" uuid="1cc13a3c-d3e9-47e7-93f7-0f51dfd21080"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(O 에 색칠하기)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="103" width="117" height="47" uuid="c3bad51e-2a14-4210-b461-12a58569d5f1"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(주소까지 자세히 표기하기)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="157" width="140" height="19" uuid="b6857fdd-5770-4133-98cd-1b7714ed5756"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 집안의 관혼상제"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="157" width="140" height="19" uuid="1ff04797-f1cb-42da-9680-e54d62ff5746"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 농촌일손돕기"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="157" width="100" height="19" uuid="c5ca76bb-585b-4308-85e3-625a7c6951c6"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 가족여행"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="157" width="100" height="19" uuid="15fdf509-7f1b-406d-958e-c493ef2b9dd3"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 고적답사"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="187" width="96" height="19" uuid="df91c9f4-d476-4e9b-b35e-980668c3d241"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 효도체험"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="187" width="146" height="19" uuid="fd274848-2d42-4786-94b8-9fa5b9454f67"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 지역향토행사참여"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="187" width="146" height="19" uuid="acecce8b-c3dd-44aa-a2f7-0e20e4fbf430"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 부모직업방문체험"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="187" width="64" height="19" uuid="f2167b39-f5e2-4362-93ce-75f5c4329f58"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["O 기타"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="218" width="551" height="39" uuid="7d3e5e2a-0173-4ceb-9d47-f59a80113b3d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="218" width="119" height="39" uuid="21de00f8-bbeb-4b2f-8191-933ab47f8410"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="222" width="119" height="30" uuid="0d5b5abf-f00c-4023-ac71-6f914ecc51f7"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체험학습 주제"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="257" width="551" height="71" uuid="c02f3ebe-3f3a-4219-99bd-e0f52583adc6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="257" width="119" height="71" uuid="00d5cb53-19eb-4616-8600-f9454e6af088"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="281" width="119" height="30" uuid="b78a4c2e-eaf8-4050-98a2-9174f8443f63"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체험학습 목적"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="328" width="551" height="71" uuid="24dae279-fc70-4307-a521-a94e038c02c7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="328" width="119" height="71" uuid="6102a78b-69af-4b0b-b720-96e3e360eb98"/>
+			</rectangle>
+			<textField>
+				<reportElement x="8" y="340" width="119" height="30" uuid="3944c452-5a04-4fce-994d-a0b44f07a40c"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체 험 학 습 에"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="364" width="107" height="30" uuid="5545889c-5fba-45b9-acc2-3de9550e9824"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["동참한 사람"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="399" width="551" height="201" uuid="eab49dba-07bd-46b8-89ce-97e4c1ae7621"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="600" width="551" height="60" uuid="87b9c9fe-0bb9-4081-9043-f2707e08301a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="660" width="551" height="60" uuid="06974c19-0e77-47f4-be2d-472a772b60a1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="399" width="119" height="201" uuid="fd55eb06-3a1a-4a3a-8839-e52ad412a182"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="600" width="119" height="60" uuid="03474552-0866-4b67-bc8c-41d91c097f89"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="660" width="119" height="60" uuid="c90229cb-aa07-4f3f-b13a-c869b925cee3"/>
+			</rectangle>
+			<textField>
+				<reportElement x="6" y="500" width="119" height="30" uuid="fad92391-8ec0-4110-bf0e-5da8d1683511"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["체험활동 내용"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="620" width="119" height="30" uuid="7c40211e-a688-4adc-9caa-dc7ca066b872"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["느낀점 및 반성"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="677" width="127" height="30" uuid="b9bb5cd8-8b95-4f81-8f2b-74d17569fe4d"/>
+				<textElement textAlignment="Left">
+					<font fontName="HYGoThic-Medium" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["부모님지도지원"]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
