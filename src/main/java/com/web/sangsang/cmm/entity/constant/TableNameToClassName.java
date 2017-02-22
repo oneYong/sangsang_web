@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
  */
 public enum TableNameToClassName {
     SS_GUIDE
+    ,SS_GUIDE_PLACE
+    ,SS_GUIDE_OBJECT
+    ,SS_GUIDE_QUIZ
     ,SS_LOGGING
     ,SS_PLACE
     ,SS_OBJECT
@@ -20,6 +23,9 @@ public enum TableNameToClassName {
     public String toString() {
         switch(this) {
             case SS_GUIDE: return "SsGuide";
+            case SS_GUIDE_PLACE: return "SsGuidePlace";
+            case SS_GUIDE_OBJECT: return "SsGuideObject";
+            case SS_GUIDE_QUIZ: return "SsGuideQuiz";
             case SS_LOGGING: return "SsLogging";
             case SS_PLACE: return "SsPlace";
             case SS_OBJECT: return "SsObject";

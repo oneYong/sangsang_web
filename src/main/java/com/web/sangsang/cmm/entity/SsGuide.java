@@ -1,9 +1,12 @@
 package com.web.sangsang.cmm.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.web.sangsang.cmm.entity.annotation.Column;
 import com.web.sangsang.cmm.entity.annotation.Table;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * 탐방포인트
@@ -32,5 +35,10 @@ public class SsGuide extends BaseEntity{
 	private Integer oder;
 	@Column(name="CONTENTS")
 	private String contents;
-
+	@Column(name="CREATE_TIME", nullable = false)
+	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss",timezone="Asia/Seoul")
+	public Date createTime;
+	@Column(name="UPDATE_TIME", nullable = false)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss",timezone="Asia/Seoul")
+	public Date updateTime;
 }
