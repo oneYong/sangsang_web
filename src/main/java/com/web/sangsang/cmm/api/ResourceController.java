@@ -41,18 +41,19 @@ public class ResourceController {
     @Autowired
     private ApplicationContext context;
 
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/{targetName}/{targetId}", method = RequestMethod.GET)
     public void toImage(HttpServletRequest request, HttpServletResponse response
-                        ,@PathVariable("id") String id
+                        ,@PathVariable("targetName") String targetName
+                        ,@PathVariable("targetId") String targetId
                         ,@RequestParam(value = "type",required = false) String type
                         ,@RequestParam(value = "maxWidth",required = false) Integer maxWidth
                         ,@RequestParam(value = "maxHeight",required = false) Integer maxHeight){
         if(type == null) type = "png";
         if(maxWidth == null) maxWidth = 500;
         if(maxHeight == null) maxHeight = 500;
+        String whereClause = "TARGET_NAME = '"+targetName + "' AND TARGET_ID = '" + targetId + "'";
         response.setContentType("image/" + type);
         try {
-            String whereClause = "ID = "+id;
             Map<String,Object> resource = cmmMapper.selectTable(SsResource.class.getAnnotation(Table.class).name(), whereClause);
             String data;
             if(resource == null){

@@ -10,14 +10,13 @@ import org.springframework.stereotype.Component;
 public class CmmSqlProvider {
 
     public String selectTable(final String tableName, final String whereClause) {
-        String makeTable = getMakeTable(tableName, whereClause);
+        String makeTable = getMakeTable(tableName, whereClause,true);
         String makeWhere = getMakeWhere(null, null);
         String makeColumns = CmmSqlUtils.getTableColumInfo(tableName);
         return new SQL(){{
             SELECT(makeColumns);
             FROM(makeTable);
             WHERE(makeWhere);
-
         }}.toString();
     }
 
@@ -46,6 +45,10 @@ public class CmmSqlProvider {
     }
 
     private String getMakeTable(String tableName, String whereClause) {
+        return getMakeTable(tableName, whereClause, false);
+    }
+
+    private String getMakeTable(String tableName, String whereClause, boolean isReturnOne) {
         tableName = CmmSqlUtils.DATABASE_NAME + "."+tableName;
         String whereStr = "";
 
@@ -53,15 +56,16 @@ public class CmmSqlProvider {
             whereStr = " AND (" + whereClause + ") ";
 
         return "("+
-        "SELECT @rownum:=@rownum +1 as rowNum, t.* \n " +
-        "  FROM (SELECT * \n" +
-        "          FROM " +tableName +" \n" +
-        "          WHERE 1=1 \n" +
-                  whereStr +" \n" +
-        "        ) t \n" +
-        "   , (SELECT @rownum:=0) TMP" +
-        ") t";
+                "SELECT @rownum:=@rownum +1 as rowNum, t.* \n " +
+                "  FROM (SELECT * \n" +
+                "          FROM " +tableName +" \n" +
+                "          WHERE 1=1 \n" + whereStr +" \n" +
+                "" + (isReturnOne ? "LIMIT 1\n" : "") +
+                "        ) t \n" +
+                "   , (SELECT @rownum:=0) TMP" +
+                ") t";
     }
+
 
     public String serverState() {
         return "SELECT CHECKING checking, APPLY_TIME applyTime FROM "+CmmSqlUtils.DATABASE_NAME + ".SS_ENVIRONMENT ORDER BY APPLY_TIME DESC LIMIT 1";
