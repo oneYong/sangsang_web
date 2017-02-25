@@ -27,7 +27,7 @@ public class CmmControllerTest {
     @Test
     public void testGetTableList(){
         RestTemplate restTemplate = new RestTemplate();
-        URI uri = URI.create("http://localhost:8077/api/cmm/SS_MUSEUM/list");
+        URI uri = URI.create("http://localhost:8077/api/cmm/SS_PLACE/list");
         PageEntity pageEntity = new PageEntity();
         pageEntity.setStart(1);
         pageEntity.setEnd(10);

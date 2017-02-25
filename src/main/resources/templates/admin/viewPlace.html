@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View PLACE Info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/datatables/1.10.12/css/jquery.dataTables.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/datatables/1.10.12/css/dataTables.bootstrap.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>박물관 정보</h1>
+    <hr/>
+    <div class="row">
+        <table id="placeTable" class="table table-striped table-bordered" cellspacing="0" >
+            <thead>
+            <tr>
+                <th> name </th>
+                <th> address </th>
+                <th> homepage </th>
+                <th> contact </th>
+                <!--
+                <th> importance </th>
+                <th> subject </th>
+                <th> description </th>
+                <th> type </th>
+                -->
+                <th> closedDay </th>
+                <!--
+                <th> majorEra </th>
+                <th> remarks </th>
+                -->
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/3.1.1/jquery.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7/dist/js/bootstrap.js}"></script>
+<script th:src="@{/webjars/datatables/1.10.12/js/jquery.dataTables.js}"></script>
+<script th:src="@{/webjars/datatables/1.10.12/js/dataTables.bootstrap.js}"></script>
+<script>
+    /*<![CDATA[*/
+
+    $( document ).ready(function() {
+        var table_name = "placeTable";
+
+        // table list parameter ...
+        var where_clause = "";
+        var start = "";
+        var end = "";
+
+        var g_table_list = tableList(table_name, where_clause, start, end);
+    });
+
+    function tableList(table_name, where_clause, start, end){
+        console.log("tableList in ...");
+        var rowIndex = 0;
+        var tableInfo = $('#' + table_name).DataTable({
+            "scrollCollapse": false,
+            "autoWidth": false,
+            "deferRender": true,
+            "info": true,
+            "fixedColumns": true,
+            "dom": 'T<"clear">lfrtip',
+            "ajax" : {
+                url: "/web/admin/json/getPlaceInfo",
+                type : "GET",
+                data : function(d){
+                    d.whereClause = where_clause,
+                    d.start = start,
+                    d.end = end;
+                }
+            },
+            "paging": true,
+            "lengthMenu": [ 10, 20, 50 ],
+            "oLanguage": {
+                sProcessing: 'Loading Data...'
+            },
+            "processing" : true,
+            "tableTools": {
+                "aButtons": [
+                    {"sExtends":    "select","sButtonText": "CSV",
+                        "fnClick": function (nButton, oConfig, oFlash) {
+                        }
+                    }
+                ],
+                "sSwfPath": "/api/tabletools/swf/copy_csv_xls_pdf.swf"
+            },
+            "columnDefs" : [
+                { "data":"name", "targets": rowIndex++, "width": "50", "className": "dt-head-center dt-body-left" }
+                ,{ "data":"address", "targets": rowIndex++, "width": "200", "className": "dt-head-center dt-body-left" }
+                ,{ "data":"homepage", "targets": rowIndex++, "width": "100", "className": "dt-head-center dt-body-left" ,
+                    "render":
+                        function(data,type,row,meta) {
+                            return '<a href="'+row.homepage+'" target="_blank">' + row.homepage + '</a>';
+                        }}
+                ,{ "data":"contact","targets": rowIndex++, "width": "70","className": "dt-head-center dt-body-left" }
+                /*
+                ,{ "data":"importance","targets": rowIndex++, "width": "70","className": "dt-head-center dt-body-center" }
+                ,{ "data":"subject","targets": rowIndex++, "width": "70","className": "dt-head-center dt-body-center" }
+                ,{ "data":"description","targets": rowIndex++, "width": "200","className": "dt-head-center dt-body-center" }
+                ,{ "data":"type","targets": rowIndex++, "width": "50","className": "dt-head-center dt-body-center" }
+                */
+                ,{ "data":"closedDay","targets": rowIndex++, "width": "70","className": "dt-head-center dt-body-left" }
+                /*
+                ,{ "data":"majorEra","targets": rowIndex++, "width": "30","className": "dt-head-center dt-body-center" }
+                ,{ "data":"remarks", "targets": rowIndex++, "width": "30", "className": "dt-head-center dt-body-center" }
+                */
+
+            ]
+        });
+
+
+        $('#'+ table_name+' tbody').on( 'click', 'tr', function () {
+            if ( $(this).hasClass('selected') ) {
+                $(this).removeClass('selected');
+            } else {
+                tableInfo.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+        return tableInfo;
+
+    }
+    /*]]>*/
+</script>
+</body>
+</html>
