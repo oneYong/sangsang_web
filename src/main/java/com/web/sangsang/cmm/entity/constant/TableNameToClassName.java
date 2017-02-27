@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
  */
 public enum TableNameToClassName {
     SS_GUIDE
-    ,SS_GUIDE_PLACE
+    ,SS_THEME
+    ,SS_THEME_PLACE
     ,SS_GUIDE_OBJECT
     ,SS_GUIDE_QUIZ
     ,SS_LOGGING
@@ -22,8 +23,9 @@ public enum TableNameToClassName {
     @Override
     public String toString() {
         switch(this) {
+            case SS_THEME: return "SsTheme";
+            case SS_THEME_PLACE: return "SsThemePlace";
             case SS_GUIDE: return "SsGuide";
-            case SS_GUIDE_PLACE: return "SsGuidePlace";
             case SS_GUIDE_OBJECT: return "SsGuideObject";
             case SS_GUIDE_QUIZ: return "SsGuideQuiz";
             case SS_LOGGING: return "SsLogging";
