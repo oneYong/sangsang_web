@@ -23,6 +23,8 @@ public class SsTheme extends BaseEntity{
 	private Long id;
 	@Column(name="TITLE", nullable = false, length = 254)
 	private String title;
+	@Column(name="TYPE", nullable = false, length = 20)
+	private String type;
 	@Column(name="ODER", precision = 4)
 	private Integer oder;
 	@Column(name="CONTENTS")
