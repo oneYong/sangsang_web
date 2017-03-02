@@ -31,6 +31,8 @@ public class SsObject  extends BaseEntity{
 	private String name;
 	@Column(name="DESCRIPTION")
 	private String description;
+	@Column(name="PLACE_ID")
+	private Long placeId;
 	@Column(name="CREATE_TIME", nullable = false)
 	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss",timezone="Asia/Seoul")
 	public Date createTime;
