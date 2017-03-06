@@ -55,6 +55,10 @@ public class SsUser extends BaseEntity{
 	public String interest;
 	@Column(name="GENDER")
 	public String gender;
+	@Column(name="SECESSION_TYPE")
+	public String secessionType;
+	@Column(name="SECESSION_OPINION")
+	public String secessionOpinion;
 	@Column(name="SOURCE", nullable = false,length = 100)
 	public String source;
 	@Column(name="SOURCE_ID",length = 1000)
