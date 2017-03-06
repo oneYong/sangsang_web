@@ -1,7 +1,6 @@
 package com.web.sangsang.cmm.util;
 
 import com.web.sangsang.cmm.entity.annotation.Column;
-import com.web.sangsang.cmm.entity.constant.TableNameToClassName;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
@@ -18,7 +17,7 @@ public class CmmSqlUtils {
     public static String getTableColumInfo(String tableName){
         String makeColumn = "";
         try{
-            String className = TableNameToClassName.valueOf(tableName).toString();
+            String className = CmmUtil.toCamelCase(tableName);
 
             Class clas = Class.forName(PAKAGE_NAME + "." + className);
 

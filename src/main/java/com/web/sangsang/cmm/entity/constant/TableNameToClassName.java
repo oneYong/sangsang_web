@@ -1,10 +1,12 @@
 package com.web.sangsang.cmm.entity.constant;
 
+import com.web.sangsang.cmm.util.CmmUtil;
 import org.springframework.stereotype.Component;
 
 /**
  * Created by WYKIM on 2017-01-06.
  */
+@Deprecated
 public enum TableNameToClassName {
     SS_GUIDE
     ,SS_THEME
@@ -18,6 +20,7 @@ public enum TableNameToClassName {
     ,SS_QUIZ_CHOICE
     ,SS_RESOURCE
     ,SS_USER
+    ,SS_USER_PLACE
     ,SS_USER_QUIZ;
 
     @Override
@@ -35,6 +38,7 @@ public enum TableNameToClassName {
             case SS_QUIZ_CHOICE: return "SsQuizChoice";
             case SS_RESOURCE: return "SsResource";
             case SS_USER: return "SsUser";
+            case SS_USER_PLACE: return "SsUserPlace";
             case SS_USER_QUIZ: return "SsUserQuiz";
             default: throw new IllegalArgumentException();
         }

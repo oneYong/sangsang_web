@@ -1,6 +1,7 @@
 package com.web.sangsang.rest;
 
 import com.web.sangsang.cmm.entity.SsPlace;
+import com.web.sangsang.cmm.util.CmmUtil;
 
 import java.util.List;
 
@@ -21,6 +22,6 @@ public class RestTest {
         //System.out.println("REQUEST OBJECT : " + museum);
         //
         List<SsPlace> museumList = reader.getMuseum("공주");
-        System.out.println("REQUEST OBJECT : " + museumList);
+        System.out.println("REQUEST OBJECT : " + CmmUtil.toCamelCase("SS_UASE_NMA"));
     }
 }

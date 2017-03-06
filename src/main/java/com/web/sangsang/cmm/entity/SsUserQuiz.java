@@ -17,8 +17,10 @@ import lombok.Data;
 @Table(name="SS_USER_QUIZ")
 @Data
 public class SsUserQuiz  extends BaseEntity{
-	@Column(name = "ID", nullable = false, precision = 10,primarykey = true)
-	private Long id;
+	@Column(name="USER_UID",primarykey = true)
+	private String userUid;
+	@Column(name="QUIZ_ID",primarykey = true)
+	private Long quizId;
 	@Column(name="IS_PASS", nullable = false)
 	private Boolean isPass;
 }

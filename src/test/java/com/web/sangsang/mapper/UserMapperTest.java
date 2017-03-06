@@ -27,7 +27,7 @@ public class UserMapperTest {
     @Before
     public void init(){
         ssUser = new SsUser();
-        ssUser.setGuid("123-123-123");
+        ssUser.setUid("123-123-123");
         ssUser.setName("테스트");
         ssUser.setCreateTime(new Date());
         ssUser.setEmail("iersans@naver.com");

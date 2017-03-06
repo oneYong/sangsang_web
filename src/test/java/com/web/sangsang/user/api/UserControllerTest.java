@@ -37,7 +37,7 @@ public class UserControllerTest {
 
     private SsUser getNewUser(){
         SsUser ssUser = new SsUser();
-        ssUser.setGuid("123-456-789-1234");
+        ssUser.setUid("123-456-789-1234");
         ssUser.setName("인서트 유저");
         ssUser.setCreateTime(new Date());
         ssUser.setEmail("iersans@123.com");

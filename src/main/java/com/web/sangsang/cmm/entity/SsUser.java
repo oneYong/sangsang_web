@@ -31,8 +31,8 @@ import java.util.Date;
 @Table(name="SS_USER")
 @Data
 public class SsUser extends BaseEntity{
-	@Column(name = "GUID", nullable = false, precision = 10)
-	public String guid;
+	@Column(name = "UID", nullable = false, precision = 10)
+	public String uid;
 	@Column(name="AGREE_TIME")
 	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
 	public Date agreeTime;
