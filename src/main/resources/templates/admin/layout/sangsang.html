@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf - Thymeleaf Layout Dialect</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<header th:replace="admin/fragments/header :: header">
+    <p>This is default header area for default layout</p>
+</header>
+<section id="content" layout:fragment="content">
+    <p th:text="${'Hello ' + name + '!'}"></p>
+    <p>This is default main content with default layout</p>
+</section>
+<footer th:replace="admin/fragments/footer :: footer">
+    <p>This is default footer area for default layout</p>
+</footer>
+</body>
+</html>

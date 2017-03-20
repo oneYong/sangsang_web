@@ -2,6 +2,7 @@ package com.web.sangsang.framework.config;
 
 import com.web.sangsang.cmm.util.CmmAES256Util;
 import com.web.sangsang.framework.interceptor.TokenInterceptor;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.*;
@@ -19,6 +20,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.*;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -105,4 +108,13 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
     public CmmAES256Util aes256CipherUtil() throws Exception {
         return new CmmAES256Util(aes256Key);
     }
+
+
+    @Bean
+    public SpringTemplateEngine templateEngine(){
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.addDialect(new LayoutDialect());
+        return templateEngine;
+    }
+
 }

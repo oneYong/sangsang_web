@@ -55,4 +55,10 @@ public class AdminController {
 
     }
 
+    @RequestMapping(value="/greeting", method = RequestMethod.GET)
+    public String greeting(){
+
+        return "admin/greeting";
+    }
+
 }
