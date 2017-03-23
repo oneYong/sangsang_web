@@ -26,6 +26,10 @@ import java.util.Map;
 public class AdminController {
     @Autowired
     private CmmMapper cmmMapper;
+    @RequestMapping(value="/index", method = RequestMethod.GET)
+    public String index(){
+        return "admin/index";
+    }
 
     @RequestMapping(value="/viewPlace", method = RequestMethod.GET)
     public String viewPlace(){
