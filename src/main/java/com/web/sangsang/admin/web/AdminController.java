@@ -29,7 +29,7 @@ public class AdminController {
 
     @RequestMapping(value="/viewPlace", method = RequestMethod.GET)
     public String viewPlace(){
-
+        System.out.println("와우!!");
         return "admin/viewPlace";
     }
 
@@ -50,15 +50,8 @@ public class AdminController {
         }
 
         returnData.put("data",ssPlaceList);
-
+        System.out.println("ㅋㅋㅋ 바로 변경 ");
         return returnData;
 
     }
-
-    @RequestMapping(value="/greeting", method = RequestMethod.GET)
-    public String greeting(){
-
-        return "admin/greeting";
-    }
-
 }

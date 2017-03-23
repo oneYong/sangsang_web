@@ -70,4 +70,6 @@ dependencies {
 	compile 'org.webjars:jquery:3.1.1'
 	compile 'org.webjars.npm:bootstrap:3.3.7'
 	compile group: 'org.webjars', name: 'datatables', version: '1.10.12'
+
+	compile("org.springframework.boot:spring-boot-devtools")
 }
