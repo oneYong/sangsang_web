@@ -109,12 +109,4 @@ public class SsAppConfig extends WebMvcConfigurerAdapter {
         return new CmmAES256Util(aes256Key);
     }
 
-
-    @Bean
-    public SpringTemplateEngine templateEngine(){
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.addDialect(new LayoutDialect());
-        return templateEngine;
-    }
-
 }
